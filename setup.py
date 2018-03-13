@@ -29,16 +29,16 @@ setuptools.setup(
     long_description=readme,
     license='GPLv3',
     url='https://github.com/zenhack/simp_le',
-    py_modules=['simp_le'],
     setup_requires=['setuptools_scm'],
     use_scm_version=True,
+    packages=['simp_le_client'],
     install_requires=install_requires,
     extras_require={
         'tests': tests_require,
     },
     entry_points={
         'console_scripts': [
-            'simp_le = simp_le:main',
+            'simp_le = simp_le_client.cli:main',
         ],
     },
     classifiers=[

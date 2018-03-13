@@ -8,8 +8,11 @@ set -xe
 
 case $1 in
   lint_suite)
-    pycodestyle simp_le.py
-    pylint --disable=locally-disabled,fixme simp_le
+    for file in simp_le/*.py; do
+      [ -e "$file" ] || continue
+      pycodestyle "$file"
+    done
+    pylint --disable=locally-disabled,fixme simp_le_client
     ;;
   simp_le_suite)
     simp_le -v --test
