@@ -44,7 +44,7 @@ setup_pebble() {
     --ip="10.30.50.2" \
     --publish 14000:14000 \
     letsencrypt/pebble:v2.3.0 \
-    pebble -config /test/config/pebble-config.json -dnsserver 10.30.50.3:8053 &
+    pebble -config /test/config/pebble-config.json -strict true -dnsserver 10.30.50.3:8053 &
 
   docker run \
     --name challtestserv \
